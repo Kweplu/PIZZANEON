@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEON PIZZA | Futuristic Pizzeria</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="#home" style="text-decoration: none; color: inherit;">
+                <h1>NEON<span>PIZZA</span></h1>
+            </a>
+        </div>
+        <button class="mobile-menu-toggle" id="mobile-menu-btn" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links" id="nav-links">
+            <a href="#menu">Menu</a>
+            <a href="#builder">Builder</a>
+            <div class="loyalty-badge">
+                <span class="icon">✨</span>
+                <span class="points">120 pts</span>
+            </div>
+        </div>
+        <div class="cart-trigger" id="cart-btn">
+            <span class="cart-icon">🛒</span>
+            <span class="cart-count">0</span>
+            <span class="cart-total">$0.00</span>
+        </div>
+    </nav>
+
+    <!-- Mobile Bottom Nav / Thumb Zone Cart -->
+    <div class="mobile-bottom-nav">
+        <div class="mobile-cart-summary" id="mobile-cart-btn">
+            <span class="cart-icon">🛒</span>
+            <span class="cart-count mobile-count">0</span>
+            <span class="mobile-cart-total">$0.00</span>
+        </div>
+        <button class="checkout-btn" id="mobile-checkout-btn">Checkout</button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2 class="stagger-text">THE FUTURE</h2>
+            <h2 class="stagger-text accent">OF TASTE.</h2>
+            <p class="hero-subtext stagger-text">Experience next-level pizza built your way. Hot, fast, and relentlessly futuristic.</p>
+            
+            <div class="geofence-input stagger-text">
+                <input type="text" placeholder="Enter Delivery Address...">
+                <button class="verify-btn">Verify</button>
+            </div>
+
+            <a href="#builder" class="cta-button stagger-text" style="margin-top: 1.5rem;">Build Your Pizza</a>
+        </div>
+        <div class="hero-image-wrapper">
+            <div class="glow-ring"></div>
+            <img src="assets/hero_pizza.png" alt="Futuristic Glowing Pizza" class="hero-pizza-img">
+        </div>
+    </section>
+
+    <!-- Interactive Pizza Builder -->
+    <section class="builder-section" id="builder">
+        <div class="section-header">
+            <h3>CYBER CONSTRUCT</h3>
+            <p>Design your perfect slice in real-time.</p>
+        </div>
+        
+        <div class="builder-container">
+            <!-- Visual Preview -->
+            <div class="builder-visual">
+                <div class="pizza-base">
+                    <img src="assets/pizza_margherita.png" alt="Pizza Base" id="pizza-preview-img">
+                    <div class="topping-layer" id="topping-preview"></div>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="builder-controls">
+                
+                <div class="control-group">
+                    <h4>1. Select Size</h4>
+                    <div class="options-grid size-options">
+                        <button class="option-btn active" data-size="10" data-price="12">10" Small</button>
+                        <button class="option-btn" data-size="14" data-price="16">14" Medium</button>
+                        <button class="option-btn" data-size="18" data-price="20">18" Large</button>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <h4>2. Choose Crust</h4>
+                    <div class="options-grid crust-options">
+                        <button class="option-btn active" data-crust="thin">Thin & Crispy</button>
+                        <button class="option-btn" data-crust="pan">Deep Pan</button>
+                        <button class="option-btn" data-crust="stuffed" data-addon="3">Stuffed Crust (+$3)</button>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <h4>3. Add Toppings (+$1.50 each)</h4>
+                    <div class="toppings-grid">
+                        <label class="topping-toggle">
+                            <input type="checkbox" value="pepperoni">
+                            <span class="toggle-btn">Pepperoni</span>
+                        </label>
+                        <label class="topping-toggle">
+                            <input type="checkbox" value="mushrooms">
+                            <span class="toggle-btn">Mushrooms</span>
+                        </label>
+                        <label class="topping-toggle">
+                            <input type="checkbox" value="onions">
+                            <span class="toggle-btn">Neon Onions</span>
+                        </label>
+                        <label class="topping-toggle">
+                            <input type="checkbox" value="sausage">
+                            <span class="toggle-btn">Cyber Sausage</span>
+                        </label>
+                        <label class="topping-toggle">
+                            <input type="checkbox" value="olives">
+                            <span class="toggle-btn">Black Olives</span>
+                        </label>
+                        <label class="topping-toggle">
+                            <input type="checkbox" value="jalapenos">
+                            <span class="toggle-btn">Spicy Jalapeños</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="build-summary">
+                    <div class="price-display">Total: <span id="build-total">$12.00</span></div>
+                    <button class="add-to-cart-btn" id="add-build-btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Smart Upsell / Featured Menu -->
+    <section class="menu-section" id="menu">
+        <div class="section-header">
+            <h3>POPULAR PROTOCOLS</h3>
+            <p>Our most heavily requested builds.</p>
+        </div>
+        
+        <div class="menu-grid">
+            <div class="menu-card scroll-reveal">
+                <img src="assets/pizza_pepperoni.png" alt="Classic Pepperoni">
+                <div class="card-info">
+                    <h4>The Prime Directive</h4>
+                    <p>Classic pepperoni with enhanced spicy honey drizzle.</p>
+                    <div class="card-footer">
+                        <span class="price">$18.00</span>
+                        <button class="add-btn" data-name="Prime Directive" data-price="18">Add</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-card scroll-reveal">
+                <img src="assets/pizza_margherita.png" alt="Margherita">
+                <div class="card-info">
+                    <h4>System Reset</h4>
+                    <p>Pure, minimal margherita with organic fresh basil.</p>
+                    <div class="card-footer">
+                        <span class="price">$15.00</span>
+                        <button class="add-btn" data-name="System Reset" data-price="15">Add</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-card scroll-reveal">
+                <img src="assets/garlic_knots.png" alt="Data Pack Garlic Knots">
+                <div class="card-info">
+                    <h4>Data Pack</h4>
+                    <p>6x Garlic knots with quantum cheese dip.</p>
+                    <div class="card-footer">
+                        <span class="price">$6.00</span>
+                        <button class="add-btn" data-name="Garlic Knots" data-price="6">Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card scroll-reveal">
+                <img src="assets/pizza_bbq.png" alt="Cyber BBQ Chicken">
+                <div class="card-info">
+                    <h4>Cyber BBQ Chicken</h4>
+                    <p>Smoky barbecue base, grilled chicken, red onions, and fresh cilantro.</p>
+                    <div class="card-footer">
+                        <span class="price">$19.00</span>
+                        <button class="add-btn" data-name="Cyber BBQ" data-price="19">Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card scroll-reveal">
+                <img src="assets/pizza_veggie.png" alt="Neon Veggie Supreme">
+                <div class="card-info">
+                    <h4>Neon Veggie Supreme</h4>
+                    <p>Loaded with bell peppers, olives, mushrooms, and holographic onions.</p>
+                    <div class="card-footer">
+                        <span class="price">$17.50</span>
+                        <button class="add-btn" data-name="Neon Veggie" data-price="17.5">Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card scroll-reveal">
+                <img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?q=80&w=800&auto=format&fit=crop" alt="Neon Elixir Energy Drink">
+                <div class="card-info">
+                    <h4>Neon Elixir</h4>
+                    <p>Ice-cold energy boost infused with quantum berry flavoring.</p>
+                    <div class="card-footer">
+                        <span class="price">$4.50</span>
+                        <button class="add-btn" data-name="Neon Elixir" data-price="4.50">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Adjectives Slider -->
+    <section class="adjectives-slider">
+        <div class="slider-track">
+            <div class="slider-item">
+                <span>TASTY</span>
+                <img src="assets/pizza_pepperoni.png" alt="Tasty">
+            </div>
+            <div class="slider-item">
+                <span>CRISPY</span>
+                <img src="assets/garlic_knots.png" alt="Crispy">
+            </div>
+            <div class="slider-item">
+                <span>CHEESY</span>
+                <img src="assets/pizza_margherita.png" alt="Cheesy">
+            </div>
+            <div class="slider-item">
+                <span>SPICY</span>
+                <img src="assets/pizza_bbq.png" alt="Spicy">
+            </div>
+            <div class="slider-item">
+                <span>HOT</span>
+                <img src="assets/hero_pizza.png" alt="Hot">
+            </div>
+            <div class="slider-item">
+                <span>FRESH</span>
+                <img src="assets/pizza_veggie.png" alt="Fresh">
+            </div>
+        </div>
+        <div class="slider-track" aria-hidden="true">
+            <div class="slider-item">
+                <span>TASTY</span>
+                <img src="assets/pizza_pepperoni.png" alt="Tasty">
+            </div>
+            <div class="slider-item">
+                <span>CRISPY</span>
+                <img src="assets/garlic_knots.png" alt="Crispy">
+            </div>
+            <div class="slider-item">
+                <span>CHEESY</span>
+                <img src="assets/pizza_margherita.png" alt="Cheesy">
+            </div>
+            <div class="slider-item">
+                <span>SPICY</span>
+                <img src="assets/pizza_bbq.png" alt="Spicy">
+            </div>
+            <div class="slider-item">
+                <span>HOT</span>
+                <img src="assets/hero_pizza.png" alt="Hot">
+            </div>
+            <div class="slider-item">
+                <span>FRESH</span>
+                <img src="assets/pizza_veggie.png" alt="Fresh">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <h2>NEON<span>PIZZA</span></h2>
+            <p>Built for the future. Delivering at lightspeed.</p>
+            <div class="social-links">
+                <a href="#">X</a>
+                <a href="#">IG</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Drawer -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <aside class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h3>YOUR LOADOUT</h3>
+            <button class="close-cart-btn" id="close-cart-btn">&times;</button>
+        </div>
+        <div class="cart-items" id="cart-items-container">
+            <!-- Cart items injected here -->
+        </div>
+        <div class="cart-upsell">
+            <h4>Suggested Add-on</h4>
+            <div class="upsell-item">
+                <span>Neon Elixir (Energy Drink)</span>
+                <button class="add-btn upsell-add" data-name="Neon Elixir" data-price="4.50">+$4.50</button>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-subtotal">
+                <span>Subtotal</span>
+                <span class="cart-total-display">$0.00</span>
+            </div>
+            <button class="checkout-btn full-width" id="drawer-checkout-btn">Initialize Checkout</button>
+        </div>
+    </aside>
+
+    <!-- Tracking Modal -->
+    <div class="tracking-modal-overlay" id="tracking-modal">
+        <div class="tracking-modal-content">
+            <h3>ORDER TRANSMITTED</h3>
+            <p class="tracking-id">ID: #NX-88291</p>
+            
+            <div class="tracking-progress-container">
+                <div class="tracking-line">
+                    <div class="tracking-fill" id="tracking-fill"></div>
+                </div>
+                <div class="tracking-steps">
+                    <div class="step active" id="step-1">
+                        <div class="step-dot"></div>
+                        <span>Received</span>
+                    </div>
+                    <div class="step" id="step-2">
+                        <div class="step-dot"></div>
+                        <span>Prepping</span>
+                    </div>
+                    <div class="step" id="step-3">
+                        <div class="step-dot"></div>
+                        <span>Baking</span>
+                    </div>
+                    <div class="step" id="step-4">
+                        <div class="step-dot"></div>
+                        <span>Out for Delivery</span>
+                    </div>
+                </div>
+            </div>
+
+            <button class="close-tracking-btn" id="close-tracking-btn">Return to Grid</button>
+        </div>
+    </div>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
